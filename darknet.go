@@ -31,6 +31,7 @@ func detect(net *C.network, metadata C.metadata, metaclasses int,
 	C.network_predict_image(net, img)
 	num := C.int(0)
 	dets := C.get_network_boxes(net, img.w, img.h, C.float(thresh), C.float(hier_thresh), (*C.int)(nil), 0, &num, letter_box)
+	C.do_nms_obj(dets, num, C.int(metaclasses), C.float(0.45))
 	C.do_nms_sort(dets, num, C.int(metaclasses), C.float(0.45))
 	// Store the final result.
 	var ret []string

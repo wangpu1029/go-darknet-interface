@@ -1,2 +1,2 @@
-# go-darknet-interface
-Use golang to call darknet's yolo interface.
+# app-yolo
+sysu-edgeos application
